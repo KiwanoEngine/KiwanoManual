@@ -20,7 +20,7 @@
             "shortName": "kiwano-doc"
         },
         "theme-default": {
-            "showLevel": true
+            "showLevel": false
         },
         "prism": {
             "css": [
