@@ -1,0 +1,69 @@
+{
+    "title": "Kiwano 用户手册",
+    "author": "nomango@qq.com",
+    "language": "zh-hans",
+    "variables": {},
+    "plugins": [
+        "disqus",
+        "sitemap",
+        "-sharing",
+        "sharing-plus",
+        "-highlight",
+        "prism",
+        "prism-themes",
+        "github-buttons",
+        "url-embed",
+        "favicon"
+    ],
+    "pluginsConfig": {
+        "disqus": {
+            "shortName": "kiwano-doc"
+        },
+        "theme-default": {
+            "showLevel": true
+        },
+        "prism": {
+            "css": [
+                "prism-themes/themes/prism-base16-ateliersulphurpool.light.css"
+            ]
+        },
+        "github-buttons": {
+            "buttons": [
+                {
+                    "user": "KiwanoEngine",
+                    "repo": "Kiwano",
+                    "type": "star",
+                    "size": "small",
+                    "count": true
+                }
+            ]
+        },
+        "sitemap": {
+            "hostname": "https://doc.kiwanoengine.com/"
+        },
+        "sharing": {
+            "weibo": false,
+            "qq": false,
+            "all": [
+                "weibo",
+                "qq",
+                "facebook",
+                "twitter"
+            ]
+        },
+        "favicon": {
+            "shortcut": "assets/images/favicon.ico",
+            "bookmark": "assets/images/favicon.ico",
+            "appleTouch": "assets/images/logo/logo_transparent.png",
+            "appleTouchMore": {
+                "120x120": "assets/images/logo/logo_transparent.png",
+                "180x180": "assets/images/logo/logo_transparent.png"
+            }
+        }
+    },
+    "links" : {
+        "sidebar" : {
+            "Kiwano Engine 官网" : "https://kiwanoengine.com"
+        }
+    }
+}

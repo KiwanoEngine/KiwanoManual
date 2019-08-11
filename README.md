@@ -1,4 +1,5 @@
-# GitBook-Test
+# Kiwano 用户手册
 
-test
+## 简介
 
+欢迎使用 Kiwano 游戏引擎用户手册，本手册包含引擎的安装、各功能组件的使用方法等，使用该手册快速上手 Kiwano 吧！
