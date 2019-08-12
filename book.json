@@ -2,7 +2,15 @@
     "title": "Kiwano 用户手册",
     "author": "nomango@qq.com",
     "language": "zh-hans",
-    "variables": {},
+    "variables": {
+        "assets": {
+            "images": "/assets/images",
+            "logo": "/assets/images/logo"
+        },
+        "github": {
+            "repo": "https://github.com/KiwanoEngine/Kiwano"
+        }
+    },
     "plugins": [
         "disqus",
         "sitemap",
