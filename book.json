@@ -25,7 +25,7 @@
     ],
     "pluginsConfig": {
         "disqus": {
-            "shortName": "kiwano-doc"
+            "shortName": "kiwano-manual"
         },
         "theme-default": {
             "showLevel": false
@@ -47,7 +47,7 @@
             ]
         },
         "sitemap": {
-            "hostname": "https://doc.kiwanoengine.com/"
+            "hostname": "https://manual.kiwanoengine.com/"
         },
         "sharing": {
             "weibo": false,
@@ -60,12 +60,12 @@
             ]
         },
         "favicon": {
-            "shortcut": "assets/images/favicon.ico",
-            "bookmark": "assets/images/favicon.ico",
-            "appleTouch": "assets/images/logo/logo_transparent.png",
+            "shortcut": "/assets/images/favicon.ico",
+            "bookmark": "/assets/images/favicon.ico",
+            "appleTouch": "/assets/images/logo/logo_transparent.png",
             "appleTouchMore": {
-                "120x120": "assets/images/logo/logo_transparent.png",
-                "180x180": "assets/images/logo/logo_transparent.png"
+                "120x120": "/assets/images/logo/logo_transparent.png",
+                "180x180": "/assets/images/logo/logo_transparent.png"
             }
         }
     },
