@@ -10,7 +10,13 @@
     "gitbook-cli": "^2.3.2"
   },
   "dependencies": {
+    "gitbook-plugin-disqus": "^0.1.0",
     "gitbook-plugin-favicon": "0.0.2",
+    "gitbook-plugin-github-buttons": "^3.0.0",
+    "gitbook-plugin-prism": "^2.4.0",
+    "gitbook-plugin-prism-themes": "0.0.2",
+    "gitbook-plugin-sharing-plus": "0.0.2",
+    "gitbook-plugin-sitemap": "^1.2.0",
     "gitbook-plugin-url-embed": "^1.0.0"
   }
 }
