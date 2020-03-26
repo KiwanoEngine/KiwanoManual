@@ -4,7 +4,7 @@
 * [安装](src/install/index.md)
     * [通过 NuGet 安装](src/install/nuget.md)
     * [通过源代码安装](src/install/source.md)
-* [快速上手](src/start/index.md)
+* [快速上手](src/quick/index.md)
 * [基础概念](src/base/index.md)
     * [角色](src/base/actor.md)
     * [舞台](src/base/stage.md)
