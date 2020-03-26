@@ -4,7 +4,7 @@
 <url> <loc>https://manual.kiwanoengine.com/src/install/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>https://manual.kiwanoengine.com/src/install/nuget.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>https://manual.kiwanoengine.com/src/install/source.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
-<url> <loc>https://manual.kiwanoengine.com/src/start/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://manual.kiwanoengine.com/src/quick/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>https://manual.kiwanoengine.com/src/base/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>https://manual.kiwanoengine.com/src/base/actor.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>https://manual.kiwanoengine.com/src/base/stage.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>

@@ -1,8 +1,8 @@
-### 角色
+### 简介
 
 `角色Actor`是游戏画面里的一个个元素，例如`Sprite精灵`、`TextActor文字角色`都是一种角色，角色控制了一个游戏对象如何渲染、更新、执行动画等。
 
-常见的角色方法有：
+### 角色的方法和属性
 
 - 修改角色位置
 
@@ -42,23 +42,6 @@ Size size = actor->GetSize();
 actor->SetVisible(false);
 ```
 
-一个角色可以有多个子角色，但只能有一个父角色，通过 `AddChild`、`RemoveChild`、`RemoveFromParent` 来添加或删除角色
-
-```cpp
-ActorPtr parent = Actor::Create();
-ActorPtr child = Actor::Create();
-parent->AddChild(child);
-```
-
-子角色会继承父角色的一部分属性，例如位置、透明度、旋转角度等，所以子角色的位置、透明度都是相对于父角色来说的
-
-```cpp
-// 父角色的位置设为 x=10, y=10
-parent->SetPosition(Point(10, 10));
-// 子角色的位置设为 x=20, y=20，但实际显示在画面的位置为 x=30, y=30
-child->SetPosition(Point(20, 20));
-```
-
 角色使用 `锚点Anchor` 来对齐，锚点是指角色的原点位置，修改锚点可以让角色变为中点对齐或任意点对齐
 
 ```cpp
@@ -80,6 +63,27 @@ child->SetName("child actor");
 parent->RemoveChildren("child actor");
 ```
 
+### 角色的关系
+
+一个角色可以有多个子角色，但只能有一个父角色，通过 `AddChild`、`RemoveChild`、`RemoveFromParent` 来添加或删除角色
+
+```cpp
+ActorPtr parent = Actor::Create();
+ActorPtr child = Actor::Create();
+parent->AddChild(child);
+```
+
+子角色会继承父角色的一部分属性，例如位置、透明度、旋转角度等，所以子角色的位置、透明度都是相对于父角色来说的
+
+```cpp
+// 父角色的位置设为 x=10, y=10
+parent->SetPosition(Point(10, 10));
+// 子角色的位置设为 x=20, y=20，但实际显示在画面的位置为 x=30, y=30
+child->SetPosition(Point(20, 20));
+```
+
+### 角色动画
+
 角色是执行动画的单位，使用 `AddAction`、`PauseAllActions`、`ResumeAllActions`、`StopAllActions` 方法来添加、暂停、继续、停止动画
 
 ```cpp
@@ -89,6 +93,8 @@ actor->AddAction(Tween::RotateTo(1_sec, 60));
 actor->StopAllActions();
 ```
 
+### 事件监听
+
 角色是事件分发与监听的单位，使用 `AddListener`、`RemoveListener` 等方法来添加、删除事件监听器
 
 ```cpp
@@ -96,4 +102,17 @@ actor->StopAllActions();
 actor->AddListener<MouseDownEvent>("mouse down", [](Event*) { std::cout << "鼠标按下" << std::endl; });
 // 移除所有名称为 'mouse down' 的监听器
 actor->RemoveListeners("mouse down");
+```
+
+### 定时任务
+
+角色可以添加定时器来完成一些固定时间间隔的任务，使用 `AddTimer`、`RemoveTimers` 来添加、删除定时器
+
+```cpp
+// 定时器执行的回调函数
+auto callback = [](Timer*, Duration dt) { std::cout << "时间间隔为" << dt.ToString() << std::endl; };
+// 添加定时器，每隔 0.5 秒执行一次 callback 函数
+actor->AddTimer("my timer", callback, 0.5_sec);
+// 移除名称为 'my timer' 的定时器
+actor->RemoveTimers("my timer");
 ```
