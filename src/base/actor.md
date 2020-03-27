@@ -1,8 +1,8 @@
-### 简介
+### 角色
 
 `角色Actor`是游戏画面里的一个个元素，例如`Sprite精灵`、`TextActor文字角色`都是一种角色，角色控制了一个游戏对象如何渲染、更新、执行动画等。
 
-### 角色的方法和属性
+#### 角色的方法和属性
 
 - 修改角色位置
 
@@ -63,7 +63,7 @@ child->SetName("child actor");
 parent->RemoveChildren("child actor");
 ```
 
-### 角色的关系
+#### 角色的关系
 
 一个角色可以有多个子角色，但只能有一个父角色，通过 `AddChild`、`RemoveChild`、`RemoveFromParent` 来添加或删除角色
 
@@ -82,7 +82,19 @@ parent->SetPosition(Point(10, 10));
 child->SetPosition(Point(20, 20));
 ```
 
-### 角色动画
+使用 `GetParent` 方法可以获取父角色
+
+```cpp
+ActorPtr parent = actor->GetParent();
+```
+
+角色被添加到舞台上后，可以使用 `GetStage` 获取角色所在舞台
+
+```cpp
+StagePtr stage = actor->GetStage();
+```
+
+#### 角色动画
 
 角色是执行动画的单位，使用 `AddAction`、`PauseAllActions`、`ResumeAllActions`、`StopAllActions` 方法来添加、暂停、继续、停止动画
 
@@ -93,26 +105,37 @@ actor->AddAction(Tween::RotateTo(1_sec, 60));
 actor->StopAllActions();
 ```
 
-### 事件监听
+#### 事件监听
 
 角色是事件分发与监听的单位，使用 `AddListener`、`RemoveListener` 等方法来添加、删除事件监听器
 
 ```cpp
 // 添加一个鼠标按下事件的监听器
-actor->AddListener<MouseDownEvent>("mouse down", [](Event*) { std::cout << "鼠标按下" << std::endl; });
+actor->AddListener<MouseDownEvent>("mouse down", [](Event*) { KGE_LOG("鼠标按下"); });
 // 移除所有名称为 'mouse down' 的监听器
 actor->RemoveListeners("mouse down");
 ```
 
-### 定时任务
+#### 定时任务
 
 角色可以添加定时器来完成一些固定时间间隔的任务，使用 `AddTimer`、`RemoveTimers` 来添加、删除定时器
 
 ```cpp
 // 定时器执行的回调函数
-auto callback = [](Timer*, Duration dt) { std::cout << "时间间隔为" << dt.ToString() << std::endl; };
+auto callback = [](Timer*, Duration dt) { KGE_LOG("时间间隔为", dt.ToString()); };
 // 添加定时器，每隔 0.5 秒执行一次 callback 函数
 actor->AddTimer("my timer", callback, 0.5_sec);
 // 移除名称为 'my timer' 的定时器
 actor->RemoveTimers("my timer");
+```
+
+#### 角色的调试
+
+如果角色的显示不正常或行为不正常，也许角色边界渲染会帮助到你，开启边界渲染功能可以让你直观地看到角色的大小和边界
+
+```cpp
+// 让导演开启角色边界渲染功能
+Director::GetInstance().SetRenderBorderEnabled(true);
+// 打开角色的边界渲染
+actor->ShowBorder(true);
 ```

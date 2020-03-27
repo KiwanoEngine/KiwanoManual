@@ -1,0 +1,77 @@
+{
+    "title": "Kiwano 用户手册",
+    "author": "nomango@qq.com",
+    "language": "zh-hans",
+    "variables": {
+        "assets": {
+            "images": "/assets/images",
+            "logo": "/assets/images/logo"
+        },
+        "github": {
+            "repo": "https://github.com/KiwanoEngine/Kiwano"
+        }
+    },
+    "plugins": [
+        "disqus",
+        "sitemap",
+        "-sharing",
+        "sharing-plus",
+        "-highlight",
+        "prism",
+        "prism-themes",
+        "github-buttons",
+        "url-embed",
+        "favicon"
+    ],
+    "pluginsConfig": {
+        "disqus": {
+            "shortName": "kiwano-manual"
+        },
+        "theme-default": {
+            "showLevel": false
+        },
+        "prism": {
+            "css": [
+                "prism-themes/themes/prism-base16-ateliersulphurpool.light.css"
+            ]
+        },
+        "github-buttons": {
+            "buttons": [
+                {
+                    "user": "KiwanoEngine",
+                    "repo": "Kiwano",
+                    "type": "star",
+                    "size": "small",
+                    "count": true
+                }
+            ]
+        },
+        "sitemap": {
+            "hostname": "https://manual.kiwanoengine.com/"
+        },
+        "sharing": {
+            "weibo": false,
+            "qq": false,
+            "all": [
+                "weibo",
+                "qq",
+                "facebook",
+                "twitter"
+            ]
+        },
+        "favicon": {
+            "shortcut": "/assets/images/favicon.ico",
+            "bookmark": "/assets/images/favicon.ico",
+            "appleTouch": "/assets/images/logo/logo_transparent.png",
+            "appleTouchMore": {
+                "120x120": "/assets/images/logo/logo_transparent.png",
+                "180x180": "/assets/images/logo/logo_transparent.png"
+            }
+        }
+    },
+    "links" : {
+        "sidebar" : {
+            "Kiwano Engine 官网" : "https://kiwanoengine.com"
+        }
+    }
+}
