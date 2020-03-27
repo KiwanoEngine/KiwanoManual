@@ -12,6 +12,7 @@
         }
     },
     "plugins": [
+        "disqus",
         "sitemap",
         "-sharing",
         "sharing-plus",
@@ -23,6 +24,9 @@
         "favicon"
     ],
     "pluginsConfig": {
+        "disqus": {
+            "shortName": "kiwano-manual"
+        },
         "theme-default": {
             "showLevel": false
         },
