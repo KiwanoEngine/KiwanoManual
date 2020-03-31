@@ -16,7 +16,7 @@
     * [输入](doc/core/input.md)
     * [渲染器](doc/core/renderer.md)
     * [定时器](doc/core/timer.md)
-    * [导演](doc/core/director.md)
+    * [模块](doc/core/module.md)
     * [日志系统](doc/core/logger.md)
     * [时钟系统](doc/core/time.md)
 * [常见角色](doc/actor/index.md)
