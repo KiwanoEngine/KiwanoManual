@@ -85,7 +85,7 @@ class MyRunner : public Runner
 public:
     int x = 0;
 
-    bool MainLoop()
+    bool MainLoop(Duration dt)
     {
         // 执行 100 次主循环后退出游戏
         x++;
@@ -97,7 +97,7 @@ public:
             return false;
         }
         // 否则执行默认主循环
-        return Runner::MainLoop();
+        return Runner::MainLoop(dt);
     }
 };
 ```
