@@ -1395,7 +1395,82 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h3 id="&#x5F85;&#x66F4;&#x65B0;">&#x5F85;&#x66F4;&#x65B0;</h3>
+                                <h3 id="&#x8F93;&#x5165;">&#x8F93;&#x5165;</h3>
+<p><code>&#x8F93;&#x5165;Input</code> &#x53EF;&#x4EE5;&#x83B7;&#x53D6;&#x5230;&#x9F20;&#x6807;&#x548C;&#x952E;&#x76D8;&#x7684;&#x5B9E;&#x65F6;&#x6309;&#x952E;&#x72B6;&#x6001;&#x3002;</p>
+<h4 id="&#x5355;&#x4F8B;&#x6A21;&#x5F0F;">&#x5355;&#x4F8B;&#x6A21;&#x5F0F;</h4>
+<p>&#x548C; <code>&#x5E94;&#x7528;&#x7A0B;&#x5E8F;Application</code> &#x4E00;&#x6837;&#x4F7F;&#x7528;&#x5355;&#x4F8B;&#x6A21;&#x5F0F;&#xFF0C;&#x4F7F;&#x7528; <code>GetInstance()</code> &#x83B7;&#x53D6;&#x8BE5;&#x5BF9;&#x8C61;&#x7684;&#x5F15;&#x7528;&#x3002;</p>
+<pre class="language-"><code class="lang-cpp"><span class="token comment">// &#x83B7;&#x53D6;&#x8F93;&#x5165;&#x8BBE;&#x5907;&#x5B9E;&#x4F8B;</span>
+Input<span class="token operator">&amp;</span> input <span class="token operator">=</span> Input<span class="token operator">::</span><span class="token function">GetInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<h4 id="&#x6309;&#x952E;&#x952E;&#x503C;">&#x6309;&#x952E;&#x952E;&#x503C;</h4>
+<p>&#x9F20;&#x6807;&#x7684;&#x6309;&#x952E;&#x952E;&#x503C;&#x6709;&#xFF1A;</p>
+<pre class="language-"><code class="lang-cpp">MouseButton<span class="token operator">::</span>Left   <span class="token comment">// &#x9F20;&#x6807;&#x5DE6;&#x952E;</span>
+MouseButton<span class="token operator">::</span>Right  <span class="token comment">// &#x9F20;&#x6807;&#x53F3;&#x952E;</span>
+MouseButton<span class="token operator">::</span>Middle <span class="token comment">// &#x9F20;&#x6807;&#x4E2D;&#x952E;</span>
+</code></pre>
+<p>&#x952E;&#x76D8;&#x7684;&#x6309;&#x952E;&#x952E;&#x503C;&#x6709;&#xFF1A;</p>
+<pre class="language-"><code class="lang-cpp">KeyCode<span class="token operator">::</span>A        <span class="token comment">// &#x5B57;&#x6BCD;&#x952E; A-Z</span>
+KeyCode<span class="token operator">::</span>Num0     <span class="token comment">// &#x6570;&#x5B57;&#x952E; 0-9</span>
+KeyCode<span class="token operator">::</span>Numpad0  <span class="token comment">// &#x6570;&#x5B57;&#x5C0F;&#x952E;&#x76D8; 0-9</span>
+KeyCode<span class="token operator">::</span>F1       <span class="token comment">// F&#x952E; 1-12</span>
+KeyCode<span class="token operator">::</span>Up       <span class="token comment">// &#x4E0A;&#x952E;</span>
+KeyCode<span class="token operator">::</span>Left     <span class="token comment">// &#x5DE6;&#x952E;</span>
+KeyCode<span class="token operator">::</span>Right    <span class="token comment">// &#x53F3;&#x952E;</span>
+KeyCode<span class="token operator">::</span>Down     <span class="token comment">// &#x4E0B;&#x952E;</span>
+KeyCode<span class="token operator">::</span>Enter    <span class="token comment">// &#x56DE;&#x8F66;&#x952E;</span>
+KeyCode<span class="token operator">::</span>Space    <span class="token comment">// &#x7A7A;&#x683C;&#x952E;</span>
+KeyCode<span class="token operator">::</span>Esc      <span class="token comment">// &#x9000;&#x51FA;&#x952E;</span>
+KeyCode<span class="token operator">::</span>Ctrl     <span class="token comment">// CTRL&#x952E;</span>
+KeyCode<span class="token operator">::</span>Shift    <span class="token comment">// SHIFT&#x952E;</span>
+KeyCode<span class="token operator">::</span>Alt      <span class="token comment">// ALT&#x952E;</span>
+KeyCode<span class="token operator">::</span>Tab      <span class="token comment">// TAB&#x952E;</span>
+KeyCode<span class="token operator">::</span>Delete   <span class="token comment">// &#x5220;&#x9664;&#x952E;</span>
+KeyCode<span class="token operator">::</span>Back     <span class="token comment">// &#x9000;&#x683C;&#x952E;</span>
+KeyCode<span class="token operator">::</span>Super    <span class="token comment">// Cmd|Super|Windows&#x952E;</span>
+</code></pre>
+<h4 id="&#x5E38;&#x89C1;&#x51FD;&#x6570;">&#x5E38;&#x89C1;&#x51FD;&#x6570;</h4>
+<ul>
+<li>&#x5224;&#x65AD;&#x6309;&#x952E;&#x662F;&#x5426;&#x6B63;&#x88AB;&#x6309;&#x4E0B;</li>
+</ul>
+<pre class="language-"><code class="lang-cpp"><span class="token comment">// &#x83B7;&#x53D6;&#x8F93;&#x5165;&#x8BBE;&#x5907;</span>
+Input<span class="token operator">&amp;</span> input <span class="token operator">=</span> Input<span class="token operator">::</span><span class="token function">GetInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// &#x5224;&#x65AD;&#x952E;&#x76D8;&#x7A7A;&#x683C;&#x952E;&#x662F;&#x5426;&#x6B63;&#x88AB;&#x6309;&#x4E0B;</span>
+<span class="token keyword">bool</span> spaceDown <span class="token operator">=</span> input<span class="token punctuation">.</span><span class="token function">IsDown</span><span class="token punctuation">(</span>KeyCode<span class="token operator">::</span>Space<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// &#x5224;&#x65AD;&#x9F20;&#x6807;&#x5DE6;&#x952E;&#x662F;&#x5426;&#x6B63;&#x88AB;&#x6309;&#x4E0B;</span>
+<span class="token keyword">bool</span> leftDown <span class="token operator">=</span> input<span class="token punctuation">.</span><span class="token function">IsDown</span><span class="token punctuation">(</span>MouseButton<span class="token operator">::</span>Left<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<ul>
+<li>&#x5224;&#x65AD;&#x6309;&#x952E;&#x662F;&#x5426;&#x521A;&#x88AB;&#x70B9;&#x51FB;</li>
+</ul>
+<pre class="language-"><code class="lang-cpp"><span class="token comment">// &#x83B7;&#x53D6;&#x8F93;&#x5165;&#x8BBE;&#x5907;</span>
+Input<span class="token operator">&amp;</span> input <span class="token operator">=</span> Input<span class="token operator">::</span><span class="token function">GetInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// &#x5224;&#x65AD;&#x952E;&#x76D8;&#x7A7A;&#x683C;&#x952E;&#x662F;&#x5426;&#x521A;&#x88AB;&#x70B9;&#x51FB;</span>
+<span class="token keyword">bool</span> spacePressed <span class="token operator">=</span> input<span class="token punctuation">.</span><span class="token function">WasPressed</span><span class="token punctuation">(</span>KeyCode<span class="token operator">::</span>Space<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// &#x5224;&#x65AD;&#x9F20;&#x6807;&#x5DE6;&#x952E;&#x662F;&#x5426;&#x521A;&#x88AB;&#x70B9;&#x51FB;</span>
+<span class="token keyword">bool</span> leftPressed <span class="token operator">=</span> input<span class="token punctuation">.</span><span class="token function">WasPressed</span><span class="token punctuation">(</span>MouseButton<span class="token operator">::</span>Left<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<ul>
+<li>&#x5224;&#x65AD;&#x6309;&#x952E;&#x662F;&#x5426;&#x521A;&#x62AC;&#x8D77;</li>
+</ul>
+<pre class="language-"><code class="lang-cpp"><span class="token comment">// &#x83B7;&#x53D6;&#x8F93;&#x5165;&#x8BBE;&#x5907;</span>
+Input<span class="token operator">&amp;</span> input <span class="token operator">=</span> Input<span class="token operator">::</span><span class="token function">GetInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// &#x5224;&#x65AD;&#x952E;&#x76D8;&#x7A7A;&#x683C;&#x952E;&#x662F;&#x5426;&#x521A;&#x62AC;&#x8D77;</span>
+<span class="token keyword">bool</span> spaceReleased <span class="token operator">=</span> input<span class="token punctuation">.</span><span class="token function">WasReleased</span><span class="token punctuation">(</span>KeyCode<span class="token operator">::</span>Space<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// &#x5224;&#x65AD;&#x9F20;&#x6807;&#x5DE6;&#x952E;&#x662F;&#x5426;&#x521A;&#x62AC;&#x8D77;</span>
+<span class="token keyword">bool</span> leftReleased <span class="token operator">=</span> input<span class="token punctuation">.</span><span class="token function">WasReleased</span><span class="token punctuation">(</span>MouseButton<span class="token operator">::</span>Left<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<ul>
+<li>&#x83B7;&#x53D6;&#x9F20;&#x6807;&#x4F4D;&#x7F6E;</li>
+</ul>
+<pre class="language-"><code class="lang-cpp"><span class="token comment">// &#x83B7;&#x53D6;&#x8F93;&#x5165;&#x8BBE;&#x5907;</span>
+Input<span class="token operator">&amp;</span> input <span class="token operator">=</span> Input<span class="token operator">::</span><span class="token function">GetInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// &#x83B7;&#x53D6;&#x9F20;&#x6807;&#x4F4D;&#x7F6E;</span>
+Point pos <span class="token operator">=</span> input<span class="token punctuation">.</span><span class="token function">GetMousePos</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// &#x83B7;&#x53D6;&#x9F20;&#x6807;X&#x4F4D;&#x7F6E;</span>
+<span class="token keyword">float</span> x <span class="token operator">=</span> input<span class="token punctuation">.</span><span class="token function">GetMouseX</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// &#x83B7;&#x53D6;&#x9F20;&#x6807;Y&#x4F4D;&#x7F6E;</span>
+<span class="token keyword">float</span> y <span class="token operator">=</span> input<span class="token punctuation">.</span><span class="token function">GetMouseY</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
 
                                 
                                 </section>
@@ -1439,7 +1514,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"输入","level":"1.5.4","depth":2,"next":{"title":"渲染器","level":"1.5.5","depth":2,"path":"doc/core/renderer.md","ref":"doc/core/renderer.md","articles":[]},"previous":{"title":"窗口","level":"1.5.3","depth":2,"path":"doc/core/window.md","ref":"doc/core/window.md","articles":[]},"dir":"ltr"},"config":{"plugins":["sitemap","-sharing","sharing-plus","-highlight","prism","prism-themes","github-buttons","url-embed","favicon"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prism-themes/themes/prism-base16-ateliersulphurpool.light.css"]},"search":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"favicon":{"shortcut":"/assets/images/favicon.ico","bookmark":"/assets/images/favicon.ico","appleTouch":"/assets/images/logo/logo_transparent.png","appleTouchMore":{"120x120":"/assets/images/logo/logo_transparent.png","180x180":"/assets/images/logo/logo_transparent.png"}},"sitemap":{"hostname":"https://manual.kiwanoengine.com/"},"prism-themes":{},"github-buttons":{"buttons":[{"user":"KiwanoEngine","repo":"Kiwano","type":"star","size":"small","count":true}]},"url-embed":{},"sharing":{"weibo":false,"qq":false,"all":["weibo","qq","facebook","twitter"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"nomango@qq.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"assets":{"images":"/assets/images","logo":"/assets/images/logo"},"github":{"repo":"https://github.com/KiwanoEngine/Kiwano"}},"title":"Kiwano 用户手册","language":"zh-hans","links":{"sidebar":{"Kiwano Engine 官网":"https://kiwanoengine.com"}},"gitbook":"*"},"file":{"path":"doc/core/input.md","mtime":"2020-03-31T06:21:35.594Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-31T06:21:56.694Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"输入","level":"1.5.4","depth":2,"next":{"title":"渲染器","level":"1.5.5","depth":2,"path":"doc/core/renderer.md","ref":"doc/core/renderer.md","articles":[]},"previous":{"title":"窗口","level":"1.5.3","depth":2,"path":"doc/core/window.md","ref":"doc/core/window.md","articles":[]},"dir":"ltr"},"config":{"plugins":["sitemap","-sharing","sharing-plus","-highlight","prism","prism-themes","github-buttons","url-embed","favicon"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prism-themes/themes/prism-base16-ateliersulphurpool.light.css"]},"search":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"favicon":{"shortcut":"/assets/images/favicon.ico","bookmark":"/assets/images/favicon.ico","appleTouch":"/assets/images/logo/logo_transparent.png","appleTouchMore":{"120x120":"/assets/images/logo/logo_transparent.png","180x180":"/assets/images/logo/logo_transparent.png"}},"sitemap":{"hostname":"https://manual.kiwanoengine.com/"},"prism-themes":{},"github-buttons":{"buttons":[{"user":"KiwanoEngine","repo":"Kiwano","type":"star","size":"small","count":true}]},"url-embed":{},"sharing":{"weibo":false,"qq":false,"all":["weibo","qq","facebook","twitter"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"nomango@qq.com","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"assets":{"images":"/assets/images","logo":"/assets/images/logo"},"github":{"repo":"https://github.com/KiwanoEngine/Kiwano"}},"title":"Kiwano 用户手册","language":"zh-hans","links":{"sidebar":{"Kiwano Engine 官网":"https://kiwanoengine.com"}},"gitbook":"*"},"file":{"path":"doc/core/input.md","mtime":"2020-04-01T06:48:45.883Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-04-01T07:53:00.781Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
