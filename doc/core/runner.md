@@ -101,3 +101,49 @@ public:
     }
 };
 ```
+
+你可以通过控制主循环，实现自定义的画面帧数
+
+```cpp
+class MyRunner : public Runner
+{
+public:
+    MyRunner()
+    {
+        // 关闭垂直同步
+        Renderer::GetInstance().SetVSyncEnabled(false);
+    }
+
+    bool MainLoop(Duration dt)
+    {
+        // 记录上一次更新时间
+        static Time last = Time::Now();
+        // 画面刷新的时间间隔，一秒刷新 60 次
+        static Duration interval = 1_sec / 60;
+
+        Duration dt;
+        while (true)
+        {
+            Time now = Time::Now();
+            dt = now - last;
+            if (dt > interval)
+            {
+                // 到达时间间隔后退出循环
+                last = now;
+                break;
+            }
+            else
+            {
+                // 未到达时间间隔时等待
+                long ms = (interval - dt).Milliseconds();
+                if (ms > 1)
+                {
+                    std::this_thread::sleep_for(std::chrono::milliseconds(ms));
+                }
+            }
+        }
+        // 执行主循环
+        return Runner::MainLoop(dt);
+    }
+};
+```
