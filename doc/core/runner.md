@@ -105,6 +105,9 @@ public:
 你可以通过控制主循环，实现自定义的画面帧数
 
 ```cpp
+#include <timeapi.h>  // timeBeginPeriod, timeEndPeriod
+#pragma comment(lib, "winmm.lib")
+
 class MyRunner : public Runner
 {
 public:
@@ -116,34 +119,40 @@ public:
 
     bool MainLoop(Duration dt)
     {
-        // 记录上一次更新时间
-        static Time last = Time::Now();
-        // 画面刷新的时间间隔，一秒刷新 60 次
-        static Duration interval = 1_sec / 60;
+        // 画面刷新的时间间隔，一秒刷新 30 次
+        static Duration interval = 1_sec / 30;
+        // 总的时间间隔
+        static Duration totalDt;
 
-        Duration dt;
-        while (true)
+        totalDt += dt;
+        if (totalDt >= interval)
         {
-            Time now = Time::Now();
-            dt = now - last;
-            if (dt > interval)
-            {
-                // 到达时间间隔后退出循环
-                last = now;
-                break;
-            }
-            else
-            {
-                // 未到达时间间隔时等待
-                long ms = (interval - dt).Milliseconds();
-                if (ms > 1)
-                {
-                    std::this_thread::sleep_for(std::chrono::milliseconds(ms));
-                }
-            }
+            // 大于时间间隔时执行主循环
+            totalDt = 0;
+            return Runner::MainLoop(totalDt);
         }
-        // 执行主循环
-        return Runner::MainLoop(dt);
+        else
+        {
+            // 未到达时间间隔时调用 Sleep 释放 CPU
+            long ms = (interval - totalDt).Milliseconds();
+            if (ms > 1)
+            {
+                ::Sleep(ms);
+            }
+            return true;
+        }
+    }
+
+    void OnReady()
+    {
+        // 提高 Sleep 时间精度，防止 Sleep 时间不稳定
+        ::timeBeginPeriod(1);
+    }
+
+    void OnDestroy()
+    {
+        // 还原时间精度
+        ::timeEndPeriod(1);
     }
 };
 ```
