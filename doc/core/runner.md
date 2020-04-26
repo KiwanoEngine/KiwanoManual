@@ -102,13 +102,14 @@ public:
 };
 ```
 
-你可以通过控制主循环，实现自定义的画面帧数
+通过重载MainLoop函数，可以实现自定义的画面帧数：
 
 ```cpp
 #include <timeapi.h>  // timeBeginPeriod, timeEndPeriod
 #pragma comment(lib, "winmm.lib")
 
-class MyRunner : public Runner
+class MyRunner
+    : public Runner
 {
 public:
     MyRunner()
@@ -119,22 +120,24 @@ public:
 
     bool MainLoop(Duration dt)
     {
-        // 画面刷新的时间间隔，一秒刷新 30 次
-        static Duration interval = 1_sec / 30;
-        // 总的时间间隔
-        static Duration totalDt;
+        // 画面刷新的时间间隔，一秒刷新 100 次
+        static const Duration interval = 1_sec / 15;
+        // 时间增量
+        static Duration deltaTime;
 
-        totalDt += dt;
-        if (totalDt >= interval)
+        // 加上上一次执行主循环到现在的时间间隔
+        deltaTime += dt;
+        if (deltaTime >= interval)
         {
-            // 大于时间间隔时执行主循环
-            totalDt = 0;
-            return Runner::MainLoop(totalDt);
+            // 时间增量大于画面刷新的时间间隔时，执行主循环
+            bool result = Runner::MainLoop(deltaTime);
+            deltaTime = 0;
+            return result;
         }
         else
         {
             // 未到达时间间隔时调用 Sleep 释放 CPU
-            long ms = (interval - totalDt).Milliseconds();
+            long ms = (interval - deltaTime).Milliseconds();
             if (ms > 1)
             {
                 ::Sleep(ms);
@@ -153,6 +156,54 @@ public:
     {
         // 还原时间精度
         ::timeEndPeriod(1);
+    }
+};
+```
+
+从更专业的角度来说，上面的代码没有考虑到画面间隔的误差问题。
+
+例如，虽然期望时间间隔是16毫秒一帧，但是由于Sleep函数误差或其他原因，导致每次画面刷新的时间间隔总是比16毫秒大，最终呈现出的画面就不是1秒60帧而有可能是1秒50帧。
+
+下面的代码是考虑了时间误差并尝试修复的代码：
+
+```cpp
+class MyRunner
+    : public Runner
+{
+public:
+    bool MainLoop(Duration dt)
+    {
+        // 画面刷新的时间间隔，一秒刷新 100 次
+        static const Duration interval = 1_sec / 100;
+        // 不包含误差的时间增量
+        static Duration deltaTime;
+        // 时间误差
+        static Duration errorTime;
+
+        // 加上上一次执行主循环到现在的时间间隔
+        deltaTime += dt;
+        // 计算包含误差的时间增量
+        Duration totalDt = deltaTime + errorTime;
+        if (totalDt >= interval)
+        {
+            // 时间增量大于画面刷新的时间间隔时，执行主循环
+            bool result = Runner::MainLoop(deltaTime);
+
+            // 记录误差
+            errorTime = totalDt - interval;
+            deltaTime = 0;
+            return result;
+        }
+        else
+        {
+            // 未到达时间间隔时调用 Sleep 释放 CPU
+            long ms = (interval - totalDt).Milliseconds();
+            if (ms > 1)
+            {
+                ::Sleep(ms);
+            }
+            return true;
+        }
     }
 };
 ```
