@@ -18,7 +18,6 @@
         "-highlight",
         "prism",
         "prism-themes",
-        "github-buttons",
         "url-embed",
         "favicon"
     ],
@@ -29,17 +28,6 @@
         "prism": {
             "css": [
                 "prism-themes/themes/prism-base16-ateliersulphurpool.light.css"
-            ]
-        },
-        "github-buttons": {
-            "buttons": [
-                {
-                    "user": "KiwanoEngine",
-                    "repo": "Kiwano",
-                    "type": "star",
-                    "size": "small",
-                    "count": true
-                }
             ]
         },
         "sitemap": {

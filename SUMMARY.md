@@ -13,7 +13,7 @@
     * [应用程序](doc/core/application.md)
     * [运行器](doc/core/runner.md)
     * [窗口](doc/core/window.md)
-    * [输入](doc/core/input.md)
+    * [用户输入](doc/core/input.md)
     * [渲染器](doc/core/renderer.md)
     * [定时器](doc/core/timer.md)
     * [模块](doc/core/module.md)
