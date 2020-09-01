@@ -44,8 +44,8 @@
             ]
         },
         "favicon": {
-            "shortcut": "/assets/images/favicon.ico",
-            "bookmark": "/assets/images/favicon.ico",
+            "shortcut": "/assets/favicon.ico",
+            "bookmark": "/assets/favicon.ico",
             "appleTouch": "/assets/images/logo/logo_transparent.png",
             "appleTouchMore": {
                 "120x120": "/assets/images/logo/logo_transparent.png",
