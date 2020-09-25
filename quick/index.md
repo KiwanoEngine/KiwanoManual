@@ -12,8 +12,9 @@ class MyRunner : public Runner
 public:
     MyRunner()
     {
-        // 窗口设置
+        // 运行器选项
         Settings s;
+        // 窗口标题设为 Hello World，大小设置为 640x480
         s.window.title = "Hello World";
         s.window.width = 640;
         s.window.height = 480;

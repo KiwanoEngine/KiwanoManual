@@ -4,31 +4,40 @@
 
 #### 创建窗口
 
-指定窗口的标题和大小来创建一个简单窗口：
+窗口是由[运行器](./runner.md#运行器选项)自动创建的，窗口的属性在运行器选项中指定：
 
 ```cpp
-// 创建一个标题为 "A Simple Window"，大小为 600x400 的窗口
-WindowPtr window = new Window("A Simple Window", 600, 400);
+// 运行器选项
+Settings s;
+// 设置窗口标题
+s.window.title = "Hello World";
+// 设置窗口大小
+s.window.width = 640;
+s.window.height = 480;
 ```
 
-还可以指定窗口的图标，在Visual Studio中将ico类型的图标资源添加到程序中，然后使用资源ID设置图标
+窗口设置的完整定义为
 
 ```cpp
-// IDI_ICON1 是VS中的图标资源ID
-WindowPtr window = new Window("A Simple Window", 600, 400, IDI_ICON1);
+struct WindowConfig
+{
+    uint32_t width  = 640;            ///< 窗口宽度
+    uint32_t height = 480;            ///< 窗口高度
+    String   title  = "Kiwano Game";  ///< 窗口标题
+    Icon     icon;                    ///< 窗口图标
+    bool     resizable  = false;      ///< 窗口大小可调整
+    bool     fullscreen = false;      ///< 窗口全屏
+};
 ```
 
-`Window::Create` 函数的完整定义为：
+#### 窗口图标
+
+在Visual Studio中将ico类型的图标资源添加到程序中，然后使用资源ID设置图标
 
 ```cpp
-WindowPtr Create(
-    const String& title,    // 窗口标题
-    uint32_t width,         // 窗口宽度
-    uint32_t height,        // 窗口高度
-    uint32_t icon = 0,      // 窗口图标
-    bool resizable = false, // 是否大小可变
-    bool fullscreen = false // 是否全屏
-);
+// 假设 ico 图片导入后的资源ID为 IDI_ICON1
+Settings s;
+s.window.icon = Icon(IDI_ICON1);
 ```
 
 #### 获取主窗口
@@ -36,7 +45,7 @@ WindowPtr Create(
 在代码的任意位置，可以通过 `应用程序Application` 获取主窗口
 
 ```cpp
-WindowPtr window = Application::GetInstance().GetMainWindow();
+WindowPtr window = Application::GetInstance().GetWindow();
 ```
 
 #### 常用方法
