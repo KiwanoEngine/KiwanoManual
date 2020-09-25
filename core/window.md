@@ -8,14 +8,14 @@
 
 ```cpp
 // 创建一个标题为 "A Simple Window"，大小为 600x400 的窗口
-WindowPtr window = Window::Create("A Simple Window", 600, 400);
+WindowPtr window = new Window("A Simple Window", 600, 400);
 ```
 
 还可以指定窗口的图标，在Visual Studio中将ico类型的图标资源添加到程序中，然后使用资源ID设置图标
 
 ```cpp
 // IDI_ICON1 是VS中的图标资源ID
-WindowPtr window = Window::Create("A Simple Window", 600, 400, IDI_ICON1);
+WindowPtr window = new Window("A Simple Window", 600, 400, IDI_ICON1);
 ```
 
 `Window::Create` 函数的完整定义为：

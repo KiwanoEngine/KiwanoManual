@@ -18,7 +18,7 @@ public:
         s.window.width = 640;
         s.window.height = 480;
 
-        SetSettings(s);
+        this->SetSettings(s);
     }
 
     void OnReady() override
@@ -56,7 +56,7 @@ int WINAPI wWinMain(HINSTANCE, HINSTANCE, PWSTR, int)
 
 ### 创建运行器
 
-主函数第一行创建了一个运行器，运行器管理着游戏的生命周期，它可以控制游戏开始和结束
+主函数第一行创建了一个运行器，它可以控制游戏开始和结束
 
 ```cpp
 RunnerPtr runner = new MyRunner;

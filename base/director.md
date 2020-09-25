@@ -36,7 +36,7 @@ StagePtr stage = Director::GetInstance().GetCurrentStage();
 
 ```cpp
 // 创建一个时长为 1 秒的淡入淡出过渡动画
-TransitionPtr transition = FadeTransition::Create(1_sec);
+TransitionPtr transition = new FadeTransition(1_sec);
 // 切换场景时使用该动画
 Director::GetInstance()->EnterStage(stage, transition);
 Director::GetInstance()->PushStage(stage, transition);

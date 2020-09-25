@@ -68,8 +68,8 @@ parent->RemoveChildren("child actor");
 一个角色可以有多个子角色，但只能有一个父角色，通过 `AddChild`、`RemoveChild`、`RemoveFromParent` 来添加或删除角色
 
 ```cpp
-ActorPtr parent = Actor::Create();
-ActorPtr child = Actor::Create();
+ActorPtr parent = new Actor;
+ActorPtr child = new Actor;
 parent->AddChild(child);
 ```
 

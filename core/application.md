@@ -19,7 +19,7 @@ app.Quit();
 
 ```cpp
 // 创建运行器
-RunnerPtr runner = Runner::Create(window);
+RunnerPtr runner = new Runner(window);
 // 启动游戏
 Application::GetInstance().Run(runner);
 ```
