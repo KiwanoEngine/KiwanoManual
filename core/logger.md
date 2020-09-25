@@ -19,9 +19,9 @@ KGE_WARN("Warning log");
 KGE_ERROR("Error log");
 
 // 输出结果为：
-// [INFO] 15:00:00  Info log
-// [WARN] 15:00:00  Warning log
-// [ERROR] 15:00:00  Error log
+// [Info] 2020-09-25 16:00:00 Info log
+// [Warning] 2020-09-25 16:00:00 Warning log
+// [Error] 2020-09-25 16:00:00 Error log
 ```
 
 使用 `KGE_LOG` 和 `KGE_LOGF` 可以实现流式和格式化两种方式的日志记录
@@ -37,8 +37,8 @@ KGE_LOG("n is", n, ", str is", str);
 KGE_LOGF("f is %.2f", f);
 
 // 输出结果为：
-// [INFO] 15:00:00  n is 10 , str is str
-// [INFO] 15:00:00  f is 1.20
+// [Info] 2020-09-25 16:00:00  n is 10 , str is str
+// [Info] 2020-09-25 16:00:00  f is 1.20
 ```
 
 #### 单例模式
@@ -59,22 +59,15 @@ Logger::GetInstance().Enable();
 Logger::GetInstance().Disable();
 ```
 
-#### 重定向输出
+#### 日志记录到文件
 
-日志系统允许将输出重定向到其他流中，例如下面的例子把错误日志和非错误日志分别重定向到不同文件中：
+日志系统提供了 `Provider` 的概念来实现将日志输出到其他地方
 
 ```cpp
-// 将非错误日志保存到 log.txt 中
-std::ofstream ofs = std::ofstream("log.txt");
-// 将错误日志保存到 err.txt 中，且用追加方式保留以前的错误日志
-std::ofstream efs = std::ofstream("err.txt", std::ios::app);
-// 重定向输出流
-if (ofs.is_open())
-{
-    Logger::GetInstance().RedirectOutputStream(ofs.rdbuf());
-}
-if (efs.is_open())
-{
-    Logger::GetInstance().RedirectErrorStream(efs.rdbuf());
-}
+// 创建一个文件日志 Provider
+LogProviderPtr p = new FileLogProvider("error.log");
+// 设置这个 Provider 的日志级别为 Error
+p->SetLevel(LogLevel::Error);
+// 添加 Provider
+Logger::GetInstance().AddProvider(p);
 ```

@@ -33,7 +33,7 @@ Renderer::GetInstance().SetClearColor(Color::White);
 Renderer::GetInstance().SetVSyncEnabled(false);
 ```
 
-> 关闭垂直同步后，游戏将占满CPU，将帧数最大化，请参考 [控制主循环](./runner.md#控制主循环) 实现自定义帧数
+> 关闭垂直同步后，游戏将占满CPU，将帧数最大化，请参考 [控制画面帧率](./runner.md#控制画面帧率) 实现自定义帧数
 
 #### 渲染资源的分配
 
