@@ -118,15 +118,17 @@ actor->RemoveListeners("mouse down");
 
 #### 定时任务
 
-角色可以添加定时器来完成一些固定时间间隔的任务，使用 `AddTimer`、`RemoveTimers` 来添加、删除定时器
+角色可以通过 `AddTask` 来完成一些固定时间间隔的任务
 
 ```cpp
 // 定时器执行的回调函数
-auto callback = [](Timer*, Duration dt) { KGE_LOG("时间间隔为", dt.ToString()); };
+auto callback = [](Task* t, Duration dt) { KGE_LOG("任务名称：", t->GetName(), "，时间间隔为：", dt.ToString()); };
 // 添加定时器，每隔 0.5 秒执行一次 callback 函数
-actor->AddTimer("my timer", callback, 0.5_sec);
-// 移除名称为 'my timer' 的定时器
-actor->RemoveTimers("my timer");
+actor->AddTask("my task", callback, 0.5_sec);
+// 根据任务名称启动、停止、移除任务
+actor->StartTasks("my task");
+actor->StopTasks("my task");
+actor->RemoveTasks("my task");
 ```
 
 #### 角色的调试
