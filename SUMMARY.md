@@ -79,6 +79,8 @@
     * [加载音频模块](/audio/module.md)
     * [音频对象](/audio/sound.md)
     * [音频播放器](/audio/player.md)
+* [UI模块](/ui/index.md)
+    * [音频播放器](/ui/module.md)
 * [物理模块](/physics/index.md)
     * [物理世界](/physics/world.md)
     * [物理刚体](/physics/body.md)
