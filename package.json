@@ -16,6 +16,7 @@
     "gitbook-plugin-url-embed": "^1.0.0"
   },
   "devDependencies": {
-    "gh-pages": "^4.0.0"
+    "gh-pages": "^4.0.0",
+    "gitbook-cli": "^2.3.2"
   }
 }
