@@ -14,7 +14,7 @@ class MyRunner : public Runner
 public:
     MyRunner()
     {
-        // 运行器选项
+        // 游戏设置
         Settings s;
         // ...
 
@@ -34,6 +34,8 @@ public:
 
 // 创建运行器
 RunnerPtr runner = new MyRunner;
+// 启动应用
+Application::GetInstance().Run(runner);
 ```
 
 #### 运行器选项

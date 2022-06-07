@@ -1,44 +1,28 @@
 ### 快速上手
 
-使用下面的代码快速创建一个 Hello World 程序，然后我们解释每一行代码的作用
+使用下面的代码快速创建一个 Hello World 程序（控制台或Win32应用均可），然后我们解释每一行代码的作用
 
 ```cpp
 #include <kiwano/kiwano.h>
 
 using namespace kiwano;
 
-class MyRunner : public Runner
+void Setup()
 {
-public:
-    MyRunner()
-    {
-        // 运行器选项
-        Settings s;
-        // 窗口标题设为 Hello World，大小设置为 640x480
-        s.window.title = "Hello World";
-        s.window.width = 640;
-        s.window.height = 480;
+    // 创建舞台
+    StagePtr stage = new Stage;
 
-        this->SetSettings(s);
-    }
+    // 创建一个文本角色
+    TextActorPtr text = new TextActor("Hello World");
+    // 设置文字颜色
+    text->SetFillColor(Color::White);
 
-    void OnReady() override
-    {
-        // 创建舞台
-        StagePtr stage = new Stage;
+    // 将文本添加到舞台中
+    stage->AddChild(text);
 
-        // 创建一个文本角色
-        TextActorPtr text = new TextActor("Hello World");
-        // 设置文字颜色
-        text->SetFillColor(Color::White);
-
-        // 将文本添加到舞台中
-        stage->AddChild(text);
-
-        // 进入舞台
-        Director::GetInstance().EnterStage(stage);
-    }
-};
+    // 进入舞台
+    Director::GetInstance().EnterStage(stage);
+}
 
 #ifdef _CONSOLE
 int main()
@@ -46,26 +30,21 @@ int main()
 int WINAPI wWinMain(HINSTANCE, HINSTANCE, PWSTR, int)
 #endif
 {
-    // 创建运行器
-    RunnerPtr runner = new MyRunner;
+    // 游戏设置
+    Settings s;
+    s.window.title = "Hello World"; // 窗口标题
+    s.window.width = 640;           // 窗口宽度
+    s.window.height = 480;          // 窗口高度
 
-    // 启动运行器
-    Application::GetInstance().Run(runner);
+    // 启动应用
+    Application::GetInstance().Run(s, Setup);
     return 0;
 }
 ```
 
-### 创建运行器
+### 设置游戏属性
 
-主函数第一行创建了一个运行器，它可以控制游戏开始和结束
-
-```cpp
-RunnerPtr runner = new MyRunner;
-```
-
-### 创建窗口
-
-运行器的构造函数中设置了游戏窗口的属性，创建了一个标题为 "Hello World"、大小为 640 x 480 的窗口
+主函数第一行设置了游戏的一些基本属性，调整了游戏窗口标题和窗口大小。
 
 ```cpp
 Settings s;
@@ -78,13 +57,13 @@ s.window.height = 480;
 
 ### 启动游戏
 
-接着通过 Application 单例启动刚刚创建的运行器
+接着通过 Application 单例启动游戏，它需要游戏设置 `Settings` 和一个启动函数 `Setup`。
+
+应用启动成功后会自动执行 `Setup` 函数，在这个方法中完成游戏的初始化。
 
 ```cpp
-Application::GetInstance().Run(runner);
+Application::GetInstance().Run(s, Setup);
 ```
-
-运行器启动成功后会自动执行它的 `OnReady()` 方法，在这个方法中完成游戏的初始化
 
 ### 创建舞台和角色
 
