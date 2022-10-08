@@ -15,9 +15,6 @@
         "sitemap",
         "-sharing",
         "sharing-plus",
-        "-highlight",
-        "prism",
-        "prism-themes",
         "url-embed",
         "favicon"
     ],

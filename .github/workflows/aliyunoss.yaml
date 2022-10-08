@@ -1,0 +1,30 @@
+name: deploy to aliyun oss
+
+on:
+  push:
+    branches: [ main, master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: setup node
+      uses: actions/setup-node@v1
+      with:
+        node-version: 16
+
+    - name: build
+      run: |
+        npm install
+        npm run build
+
+    - name: setup aliyun oss
+      uses: manyuanrong/setup-ossutil@master
+      with:
+        endpoint: oss-cn-chengdu.aliyuncs.com
+        access-key-id: ${{ secrets.OSS_KEY_ID }}
+        access-key-secret: ${{ secrets.OSS_KEY_SECRET }}
+
+    - name: upload files
+      run: ossutil cp -rf ./public oss://kiwano-manual-website/
