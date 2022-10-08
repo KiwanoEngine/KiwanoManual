@@ -1,9 +1,7 @@
 {
   "scripts": {
     "build": "honkit build",
-    "serve": "honkit serve",
-    "deploy": "npm run build && gh-pages -d _book",
-    "dep": "honkit install"
+    "serve": "honkit serve"
   },
   "dependencies": {
     "gitbook-plugin-disqus": "^0.1.0",
