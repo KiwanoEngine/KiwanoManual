@@ -19,7 +19,7 @@ app.Quit();
 
 ```cpp
 // 创建运行器
-RunnerPtr runner = new Runner(window);
+RefPtr<Runner> runner = new Runner(window);
 // 启动游戏
 Application::GetInstance().Run(runner);
 ```
@@ -48,7 +48,7 @@ Application::GetInstance().Quit();
 
 ```cpp
 // 获取音频模块实例
-audio::AudioModule& am = audio::AudioModule::GetInstance();
+audio::Module& am = audio::Module::GetInstance();
 // 添加音频模块
 Application::GetInstance().Use(am);
 ```
@@ -62,7 +62,7 @@ Application::GetInstance().Use(am);
 应用程序控制着整个事件系统，可以使用 `DispatchEvent` 发送用户自定义的事件
 
 ```cpp
-EventPtr event = ...;
+RefPtr<Event> event = ...;
 Application::GetInstance().DispatchEvent(event);
 ```
 

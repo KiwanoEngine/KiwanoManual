@@ -10,10 +10,10 @@ using namespace kiwano;
 void Setup()
 {
     // 创建舞台
-    StagePtr stage = new Stage;
+    RefPtr<Stage> stage = new Stage;
 
     // 创建一个文本角色
-    TextActorPtr text = new TextActor("Hello World");
+    RefPtr<TextActor> text = new TextActor("Hello World");
     // 设置文字颜色
     text->SetFillColor(Color::White);
 
@@ -70,13 +70,13 @@ Application::GetInstance().Run(s, Setup);
 当游戏启动后，先创建一个舞台Stage，舞台是各种图形、精灵的载体，所有可见物体必须添加到舞台或其子角色中，才会被渲染出来
 
 ```cpp
-StagePtr stage = new Stage;
+RefPtr<Stage> stage = new Stage;
 ```
 
 为舞台创建一个文本角色，文字内容为"Hello World"，并设置它的文字颜色为白色
 
 ```cpp
-TextActorPtr text = new TextActor("Hello World");
+RefPtr<TextActor> text = new TextActor("Hello World");
 // 设置文字的填充颜色
 text->SetFillColor(Color::White);
 ```

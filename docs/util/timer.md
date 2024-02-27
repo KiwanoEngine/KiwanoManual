@@ -6,7 +6,7 @@ Usage:
 
 ```cpp
 // 创建计时器，此时时间记为 t1
-TimerPtr timer = new Timer;
+RefPtr<Timer> timer = new Timer;
 
 // 做点什么耗时的工作
 

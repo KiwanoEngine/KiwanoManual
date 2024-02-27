@@ -45,7 +45,7 @@ s.window.icon = Icon(IDI_ICON1);
 在代码的任意位置，可以通过 `应用程序Application` 获取主窗口
 
 ```cpp
-WindowPtr window = Application::GetInstance().GetWindow();
+RefPtr<Window> window = Application::GetInstance().GetWindow();
 ```
 
 #### 常用方法

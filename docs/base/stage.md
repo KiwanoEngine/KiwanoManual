@@ -8,7 +8,7 @@
 
 ```cpp
 // 创建舞台
-StagePtr myStage = new Stage;
+RefPtr<Stage> myStage = new Stage;
 // 添加一个角色到舞台上
 myStage->AddChild(actor1);
 // 将一个角色从舞台上移除

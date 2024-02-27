@@ -4,7 +4,7 @@
 
 ```cpp
 // 创建一个每1秒触发一次，总共触发5次的报时器
-TickerPtr ticker = new Ticker(1_sec, 5);
+RefPtr<Ticker> ticker = new Ticker(1_sec, 5);
 
 // ticker->Tick() 函数会在达到触发时间时返回true
 

@@ -68,8 +68,8 @@ parent->RemoveChildren("child actor");
 一个角色可以有多个子角色，但只能有一个父角色，通过 `AddChild`、`RemoveChild`、`RemoveFromParent` 来添加或删除角色
 
 ```cpp
-ActorPtr parent = new Actor;
-ActorPtr child = new Actor;
+RefPtr<Actor> parent = new Actor;
+RefPtr<Actor> child = new Actor;
 parent->AddChild(child);
 ```
 
@@ -85,13 +85,13 @@ child->SetPosition(Point(20, 20));
 使用 `GetParent` 方法可以获取父角色
 
 ```cpp
-ActorPtr parent = actor->GetParent();
+RefPtr<Actor> parent = actor->GetParent();
 ```
 
 角色被添加到舞台上后，可以使用 `GetStage` 获取角色所在舞台
 
 ```cpp
-StagePtr stage = actor->GetStage();
+RefPtr<Stage> stage = actor->GetStage();
 ```
 
 #### 角色动画

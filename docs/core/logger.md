@@ -65,7 +65,7 @@ Logger::GetInstance().Disable();
 
 ```cpp
 // 创建一个文件日志 Provider
-LogProviderPtr p = new FileLogProvider("error.log");
+RefPtr<LogProvider> p = new FileLogProvider("error.log");
 // 设置这个 Provider 的日志级别为 Error
 p->SetLevel(LogLevel::Error);
 // 添加 Provider

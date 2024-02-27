@@ -27,7 +27,7 @@ Director::GetInstance().PopStage();
 在代码的任何地方你都可以通过导演获取到当前的舞台，使用 `GetCurrentStage` 方法获取
 
 ```cpp
-StagePtr stage = Director::GetInstance().GetCurrentStage();
+RefPtr<Stage> stage = Director::GetInstance().GetCurrentStage();
 ```
 
 #### 舞台的切换过渡动画
@@ -36,7 +36,7 @@ StagePtr stage = Director::GetInstance().GetCurrentStage();
 
 ```cpp
 // 创建一个时长为 1 秒的淡入淡出过渡动画
-TransitionPtr transition = new FadeTransition(1_sec);
+RefPtr<Transition> transition = new FadeTransition(1_sec);
 // 切换场景时使用该动画
 Director::GetInstance()->EnterStage(stage, transition);
 Director::GetInstance()->PushStage(stage, transition);

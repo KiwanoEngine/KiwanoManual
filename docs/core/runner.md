@@ -33,7 +33,7 @@ public:
 };
 
 // 创建运行器
-RunnerPtr runner = new MyRunner;
+RefPtr<Runner> runner = new MyRunner;
 // 启动应用
 Application::GetInstance().Run(runner);
 ```
