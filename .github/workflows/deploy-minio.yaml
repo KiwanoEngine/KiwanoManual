@@ -1,0 +1,30 @@
+name: Deploy to minio
+
+on:
+  push:
+    branches: [ main, master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: setup node
+      uses: actions/setup-node@v1
+      with:
+        node-version: 16
+
+    - name: build
+      run: |
+        npm install
+        npm run build
+
+    - name: Upload to minio
+      uses: lovellfelix/minio-deploy-action@v1
+      with:
+        endpoint: ${{ vars.MINIO_ENDPOINT }}
+        access_key: ${{ secrets.MINIO_ACCESS_KEY }}
+        secret_key: ${{ secrets.MINIO_SECRET_KEY }}
+        bucket: ${{ vars.MINIO_BUCKET }}
+        source_dir: '_book'
+        target_dir: '/'
